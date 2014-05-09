@@ -105,7 +105,7 @@
 		public function getNote($noteId) {
 			$PDODB = $this->getPDO();
 			
-			$q = $q->prepare("SELECT id
+			$q = $PDODB->prepare("SELECT id
 									 , title
 									 , note
 							  FROM notes
