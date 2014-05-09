@@ -1,0 +1,14 @@
+div#treeContainer {
+	float: left;
+	width: 20%;
+	min-height: 500px;
+	border-right: 1px solid #EDEDED;
+}
+div#noteContainer {
+	float: left;
+	width: 75%;
+}
+
+ul#noteTree {
+	
+}

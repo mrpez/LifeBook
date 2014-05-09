@@ -3,6 +3,18 @@
 	date_default_timezone_set( 'America/New_York' );
 	
 	class Utility {
+		private $DB = null;
+		private $PDODB = null;
+	
+		public function getDB() {
+			if( $this->DB == null ) {
+				if( !class_exists('MySQLDB') )
+					include(dirname(__FILE__) . '/MySQLDB.php');
+				$this->DB = new MySQLDB;
+			}
+			
+			return $this->DB;
+		}
 	
 		public function getPDO() {
 			$dbCredentials = array(1);
@@ -12,21 +24,21 @@
 			$dbCredentials[ 'p' ] = '';
 			
 			try {
-				if( !isSet($PDODB) )
+				if( $this->PDODB == null )
 				{
-					$PDODB = new PDO("mysql:host=" . $dbCredentials[ 'server' ] . ";dbname=" . $dbCredentials[ 'database' ], $dbCredentials[ 'u' ], $dbCredentials[ 'p' ]);
+					$this->PDODB = new PDO("mysql:host=" . $dbCredentials[ 'server' ] . ";dbname=" . $dbCredentials[ 'database' ], $dbCredentials[ 'u' ], $dbCredentials[ 'p' ]);
 				}
 			} catch (PDOException $e) {
 				$error = $e->getMessage();
-				Utility::throwError(1, '', $error, true);
+				$this->throwError(1, '', $error, true);
 			}
 			
-			return $PDODB;
+			return $this->PDODB;
 		}
 		
 		public function validateLogin() {
 			if( !$this->checkLogin() ) {
-				header('Location: /login.php', true, 302);
+				header('Location: /login.lb', true, 302);
 				die;
 			}
 		}
@@ -64,6 +76,24 @@
 				
 		private function getLoginHash($in) {
 			return md5('42323SDFkjHKFjhaiu&*^(&*@#"' . $in);
+		}
+		
+		public function hashPassword($pass) {
+			return md5('42323SDFkjHKFjhaiu&*^(&*@#"' . $pass . 'adsfasd(*&)(*&(%&^I&T&^RI&TYRYDSAIU');
+		
+		}
+		
+		public function throwError($var1, $var2 = null, $var3 = null, $var4 = null, $var5 = null, $var6 = null, $var7 = null, $var8 = null) {
+			echo '<pre>';
+			var_dump($var1);
+			var_dump($var2);
+			var_dump($var3);
+			var_dump($var4);
+			var_dump($var5);
+			var_dump($var6);
+			var_dump($var7);
+			var_dump($var8);
+			echo '</pre>';
 		}
 		
 	}

@@ -1,0 +1,60 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial;
+	background-color: #333333;
+	background-image: url('/lib/img/grey_wash_wall.png');
+}
+div#headerContainer {
+	width: 100%;
+	background-color: #00A3D9;
+}
+
+div#headerContent {
+	color: white;
+	padding: 5px;
+}
+
+div#headerContent  a {
+	color: white;
+}
+
+div#headerLeft {
+	float: left;
+}
+div#headerRight {
+	float: right;
+}
+
+div#bodyContainer {
+}
+
+div#bodyContent {
+	width: 90%;
+	min-height: 500px;
+	padding: 3px;
+	margin: 0 auto;
+	background-color: #fff;
+	border-right: 2px solid #007FFF;
+	border-left: 2px solid #007FFF;
+	border-bottom: 2px solid #007FFF;
+}
+
+div#footerContent {
+	width: 90%;
+	min-height: 100px;
+	margin: 0 auto;
+	text-align: center;
+	color: white;
+	font-size: 14px;
+	padding-top: 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	padding: 5px;
+	margin: 0;
+}
+
+.clearFix {
+	clear:both;
+}
